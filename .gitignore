@@ -1,0 +1,4 @@
+.env
+neuralretail_env/
+mlruns/
+__pycache__/
