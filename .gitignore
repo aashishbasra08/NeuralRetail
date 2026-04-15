@@ -1,4 +1,20 @@
-.env
-neuralretail_env/
+# MLflow
+mlflow.db
 mlruns/
+
+#Python
 __pycache__/
+*.pyc
+
+# Virtual Environment
+neuralretail_env/
+venv/
+
+# Environment files
+.env
+
+# jupyter
+.ipynb_checkpoints/
+
+# OS files
+.DS_Store
