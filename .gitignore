@@ -17,4 +17,7 @@ venv/
 .ipynb_checkpoints/
 
 # OS files
-.DS_Store
+.DS_Store"data/raw/*.csv" 
+"data/raw/*.xlsx" 
+"data/processed/*.parquet" 
+"data/features/*.parquet" 
