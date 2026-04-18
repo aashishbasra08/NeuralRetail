@@ -1,0 +1,8 @@
+{
+  "no_null_customer_id": true,
+  "quantity_positive": false,
+  "price_positive": false,
+  "valid_date_range": true,
+  "valid_countries": true,
+  "row_count_ok": true
+}
