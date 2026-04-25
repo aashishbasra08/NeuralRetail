@@ -1,0 +1,84 @@
+# docker-compose.prod.yml
+# This file starts all five services together — Postgres, Redis, MLflow, FastAPI, Streamlit.
+# Run with: docker-compose -f docker-compose.prod.yml up -d
+
+version: "3.9"
+
+services:
+
+  postgres:
+    image: postgres:17-alpine
+    environment:
+      POSTGRES_DB: neuralretail
+      POSTGRES_USER: nr_user
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U nr_user"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    restart: unless-stopped
+
+  redis:
+    image: redis:8-alpine
+    command: redis-server --maxmemory 256mb --maxmemory-policy allkeys-lru
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 10s
+    restart: unless-stopped
+
+  mlflow:
+    image: ghcr.io/mlflow/mlflow:v2.13.0
+    command: >
+      mlflow server
+      --host 0.0.0.0
+      --port 5000
+      --backend-store-uri postgresql://nr_user:${POSTGRES_PASSWORD}@postgres/mlflow
+      --default-artifact-root /mlartifacts
+    volumes:
+      - mlflow_artifacts:/mlartifacts
+    depends_on:
+      postgres:
+        condition: service_healthy
+    ports:
+      - "5000:5000"
+    restart: unless-stopped
+
+  fastapi:
+    build:
+      context: .
+      dockerfile: Dockerfile.fastapi
+    environment:
+      - REDIS_URL=redis://redis:6379
+      - MLFLOW_TRACKING_URI=http://mlflow:5000
+    depends_on:
+      redis:
+        condition: service_healthy
+      mlflow:
+        condition: service_started
+    ports:
+      - "8000:8000"
+    restart: unless-stopped
+    deploy:
+      resources:
+        limits:
+          memory: 512M
+
+  streamlit:
+    build:
+      context: .
+      dockerfile: Dockerfile.streamlit
+    environment:
+      - FASTAPI_URL=http://fastapi:8000
+      - MLFLOW_TRACKING_URI=http://mlflow:5000
+    depends_on:
+      - fastapi
+    ports:
+      - "8501:8501"
+    restart: unless-stopped
+
+volumes:
+  postgres_data:
+  mlflow_artifacts:

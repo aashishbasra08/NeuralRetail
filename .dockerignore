@@ -1,0 +1,11 @@
+data/raw/
+mlruns/
+neuralretail_env/
+venv/
+__pycache__/
+*.pyc
+*.pyo
+.git/
+.env
+notebooks/
+*.ipynb

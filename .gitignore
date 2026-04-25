@@ -21,3 +21,15 @@ venv/
 "data/raw/*.xlsx" 
 "data/processed/*.parquet" 
 "data/features/*.parquet" 
+
+.env
+.streamlit/secrets.toml
+data/raw/
+mlruns/
+neuralretail_env/
+venv/
+__pycache__/
+*.pyc
+*.pyo
+*.ipynb_checkpoints
+models/*.pkl

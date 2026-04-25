@@ -1,0 +1,40 @@
+# docker-compose.monitoring.yml
+# This file starts Prometheus and Grafana for local monitoring.
+# Prometheus collects metrics, Grafana visualizes them.
+# Run with: docker-compose -f docker-compose.monitoring.yml up -d
+# Prometheus: http://localhost:9090
+# Grafana:    http://localhost:3000 (admin / admin123)
+
+version: "3.9"
+
+services:
+
+  prometheus:
+    image: prom/prometheus:v2.53.0
+    volumes:
+      - ./monitoring/prometheus.yml:/etc/prometheus/prometheus.yml
+      - prometheus_data:/prometheus
+    command:
+      - --config.file=/etc/prometheus/prometheus.yml
+      - --storage.tsdb.retention.time=15d
+    ports:
+      - "9090:9090"
+    restart: unless-stopped
+
+  grafana:
+    image: grafana/grafana:11.1.0
+    environment:
+      - GF_SECURITY_ADMIN_PASSWORD=admin123
+      - GF_USERS_ALLOW_SIGN_UP=false
+    volumes:
+      - grafana_data:/var/lib/grafana
+      - ./monitoring/grafana/dashboards:/etc/grafana/provisioning/dashboards
+    ports:
+      - "3000:3000"
+    depends_on:
+      - prometheus
+    restart: unless-stopped
+
+volumes:
+  prometheus_data:
+  grafana_data:
