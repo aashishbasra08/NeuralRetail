@@ -31,7 +31,7 @@ with st.sidebar:
 @st.cache_data
 def load_data():
     """Load demand features from parquet file."""
-    df = pd.read_parquet(r'C:/Users/ACER/NeuralRetail/data/features/demand_features.parquet')
+    df = pd.read_parquet(r'data/features/demand_features.parquet')
     return df
 
 
