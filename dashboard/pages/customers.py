@@ -395,7 +395,7 @@ with tab3:
 
     st.markdown(f"**Showing top 20 of {len(export_df):,} customers**")
     st.dataframe(
-        export_df.head(20).style.applymap(urgency_color, subset=['churn_prob']),
+        export_df.head(20).style.map(urgency_color, subset=['churn_prob']),
         use_container_width=True,
         height=360,
     )
