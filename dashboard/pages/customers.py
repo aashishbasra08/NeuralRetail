@@ -66,7 +66,7 @@ def load_rfm_data():
 def load_churn_model():
     """Load the trained XGBoost churn model from disk. Returns None if not found."""
     try:
-        model = joblib.load(r'C:/Users/ACER/NeuralRetail/models/xgb_churn.pkl')
+        model = joblib.load(r'models/xgb_churn.pkl')
         return model
     except Exception as e:
         st.error(f"Model load error: {e}")
