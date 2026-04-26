@@ -137,7 +137,7 @@ def color_urgency(val):
 styled_df = alerts_df[[
     'sku', 'description', 'current_stock',
     'safety_stock', 'days_until_stockout', 'urgency'
-]].style.applymap(color_urgency, subset=['urgency'])
+]].style.map(color_urgency, subset=['urgency'])
 
 st.dataframe(styled_df, use_container_width=True, height=350)
 
