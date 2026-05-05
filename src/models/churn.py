@@ -1,4 +1,4 @@
-# src/models/xgboost_lightgbm_churn_model.py
+# src/models/churn.py
 # This file trains and compares three churn prediction models — XGBoost, LightGBM,
 # and a 50/50 ensemble of both. It uses RFM-based features, logs all metrics to MLflow,
 # saves the XGBoost model as a .pkl file, and generates confusion matrix and ROC curve plots.
@@ -33,7 +33,7 @@ os.makedirs("reports", exist_ok=True)
 os.makedirs("models",  exist_ok=True)
 os.makedirs("data",    exist_ok=True)
 
-mlflow.set_tracking_uri("http://localhost:5000")
+mlflow.set_tracking_uri("sqlite:///mlflow.db")
 mlflow.set_experiment("NeuralRetail_Churn_Prediction")
 
 # Load RFM feature data from parquet

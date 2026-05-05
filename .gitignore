@@ -1,35 +1,35 @@
-# MLflow
-mlflow.db
-mlruns/
-
-#Python
-__pycache__/
-*.pyc
-
-# Virtual Environment
+# Virtual environment
 neuralretail_env/
-venv/
 
-# Environment files
-.env
-
-# jupyter
-.ipynb_checkpoints/
-
-# OS files
-.DS_Store"data/raw/*.csv" 
-"data/raw/*.xlsx" 
-"data/processed/*.parquet" 
-"data/features/*.parquet" 
-
-.env
-.streamlit/secrets.toml
+# Data files (large)
 data/raw/
-mlruns/
-neuralretail_env/
-venv/
+data/processed/
+data/features/
+
+# Python cache
 __pycache__/
 *.pyc
 *.pyo
-*.ipynb_checkpoints
+.ipynb_checkpoints/
+
+# MLflow
+mlruns/
+mlartifacts/
+mlflow.db
+test_mlflow.db
+
+# Environment
+.env
+*.env
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+
+# Model files (large)
 models/*.pkl
+models/*.pt
+models/*.h5
