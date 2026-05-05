@@ -1,4 +1,4 @@
 GitHub Repository : https://github.com/Aashishbasra08/NeuralRetail
-Live Dashboard    : https://aashishbasra08-neuralretail.streamlit.app
+Live Dashboard    : https://neuralretail-aashish.streamlit.app
 API Documentation : https://neuralretail-production-1218.up.railway.app/docs
 Demo Video        : https://youtu.be/YOUR_VIDEO_ID
