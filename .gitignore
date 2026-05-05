@@ -1,35 +1,7 @@
-# Virtual environment
-neuralretail_env/
-
-# Data files (large)
-data/raw/
-data/processed/
-data/features/
-
-# Python cache
-__pycache__/
-*.pyc
-*.pyo
-.ipynb_checkpoints/
-
-# MLflow
+data/
 mlruns/
 mlartifacts/
-mlflow.db
-test_mlflow.db
-
-# Environment
-.env
-*.env
-
-# OS
-.DS_Store
-Thumbs.db
-
-# Logs
-*.log
-
-# Model files (large)
-models/*.pkl
-models/*.pt
-models/*.h5
+lightning_logs/
+*.parquet
+*.pt
+*.pkl
