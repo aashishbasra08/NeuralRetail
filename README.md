@@ -5,7 +5,7 @@
 
 ## Live Demo
 - Dashboard: https://aashishbasra08-neuralretail.streamlit.app
-- API Docs: https://neuralretail-api.railway.app/docs
+- API Docs: https://neuralretail-production-1218.up.railway.app/docs
 - Demo Video: https://youtu.be/YOUR_VIDEO_ID
 
 ## Architecture
