@@ -1,7 +1,12 @@
-data/
+﻿data/
 mlruns/
 mlartifacts/
 lightning_logs/
 *.parquet
 *.pt
 *.pkl
+neuralretail_env/
+__pycache__/
+*.pyc
+*.db
+models/
