@@ -4,7 +4,7 @@
 > for retail companies | Amdox Technologies Internship | April 2026
 
 ## Live Demo
-- Dashboard: https://aashishbasra08-neuralretail.streamlit.app
+- Dashboard: https://neuralretail-aashish.streamlit.app
 - API Docs: https://neuralretail-production-1218.up.railway.app/docs
 - Demo Video: https://youtu.be/YOUR_VIDEO_ID
 
