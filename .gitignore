@@ -1,8 +1,8 @@
-﻿data/
+
 mlruns/
 mlartifacts/
 lightning_logs/
-*.parquet
+
 *.pt
 *.pkl
 neuralretail_env/
