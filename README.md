@@ -6,8 +6,7 @@ End-to-end MLOps system for **Demand Forecasting, Churn Prediction, and Customer
 
 ## 🚀 Live Demo
 - 🌐 **Dashboard:** https://neuralretail-aashish.streamlit.app
-- ⚡ **API Docs:** https://neuralretail-production-1218.up.railway.app/docs
-
+- ⚡ **API Docs:** Deployed on Railway (run locally for full access — see setup below)
 ---
 
 ## 🔐 Demo Credentials
